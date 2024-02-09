@@ -1,5 +1,6 @@
 ﻿using ReturnExactSearchResultFirst;
 
+// Data uit de DB
 List<Company> returnedFromDatabase = new()
 {
     new Company { Id = 1, City = "Bakhuizen"},
@@ -13,18 +14,18 @@ List<Company> returnedFromDatabase = new()
     new Company { Id = 9, City = "Biddinghuizen"},
     new Company { Id = 10, City = "Delfstrahuizen"},
     new Company { Id = 11, City = "Huizen"},
-    new Company { Id = 20, City = "Amsterdam"},
-    new Company { Id = 25, City = "Panningen"}
 };
 
+// user input, voor dit voorbeeld hardcoded
 string keyword = "huiz";
 
+// sorteert door namen die beginnen met de user input aan het begin te zetten, de rest daarna alfabetisch
 List<Company> sortedresult = returnedFromDatabase
-    .Where(c => c.City.ToLower().Contains(keyword.ToLower()))
     .OrderByDescending(c => c.City.ToLower().StartsWith(keyword.ToLower()))
     .ThenBy(c => c.City.ToLower())
     .ToList();
 
+// dit is een console app, zo kan ik de eerste 10 printen
 for (int count = 0; count < 10; count++)
 {
     Console.WriteLine(sortedresult[count].City);

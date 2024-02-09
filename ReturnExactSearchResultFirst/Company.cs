@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ReturnExactSearchResultFirst
 {
+    // Simpel model
     public class Company
     {
         public int Id { get; set; }
