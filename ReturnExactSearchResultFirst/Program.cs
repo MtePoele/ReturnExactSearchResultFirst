@@ -20,15 +20,15 @@ List<Company> returnedFromDatabase = new()
 string keyword = "huiz";
 
 // sorteert door namen die beginnen met de user input aan het begin te zetten, de rest daarna alfabetisch
-List<Company> sortedresult = returnedFromDatabase
+List<Company> sortedResult = returnedFromDatabase
     .OrderByDescending(c => c.City.ToLower().StartsWith(keyword.ToLower()))
     .ThenBy(c => c.City)
     .ToList();
 
 // dit is een console app, zo kan ik de eerste 10 printen
-for (int count = 0; count < 2; count++)
+for (int count = 0; count < 10; count++)
 {
-    Console.WriteLine(sortedresult[count].City);
+    Console.WriteLine(sortedResult[count].City);
 }
 
 
