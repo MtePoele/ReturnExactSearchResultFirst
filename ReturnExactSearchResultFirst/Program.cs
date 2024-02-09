@@ -11,13 +11,13 @@ List<Company> returnedFromDatabase = new()
     new Company { Id = 6, City = "Broekhuizen(DR)"},
     new Company { Id = 7, City = "Broekhuizen(LB)"},
     new Company { Id = 8, City = "Broekhuizenvorst"},
-    new Company { Id = 9, City = "almere"},
+    new Company { Id = 9, City = "Biddinghuizen" },
     new Company { Id = 10, City = "Delfstrahuizen"},
-    new Company { Id = 11, City = "almelo"},
+    new Company { Id = 11, City = "Huizen" },
 };
 
 // user input, voor dit voorbeeld hardcoded
-string keyword = "alm";
+string keyword = "huiz";
 
 // sorteert door namen die beginnen met de user input aan het begin te zetten, de rest daarna alfabetisch
 List<Company> sortedresult = returnedFromDatabase
