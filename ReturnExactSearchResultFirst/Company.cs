@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace ReturnExactSearchResultFirst
 {
     // Simpel model
-    public class Company
+    public class City
     {
         public int Id { get; set; }
-        public string City { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
     }
 }

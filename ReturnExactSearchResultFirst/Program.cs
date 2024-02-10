@@ -1,34 +1,38 @@
 ﻿using ReturnExactSearchResultFirst;
 
 // Data uit de DB
-List<Company> returnedFromDatabase = new()
+List<City> returnedFromDatabase = new()
 {
-    new Company { Id = 1, City = "Bakhuizen"},
-    new Company { Id = 2, City = "Elahuizen"},
-    new Company { Id = 3, City = "Achthuizen"},
-    new Company { Id = 4, City = "Benthuizen"},
-    new Company { Id = 5, City = "Driehuizen"},
-    new Company { Id = 6, City = "Broekhuizen(DR)"},
-    new Company { Id = 7, City = "Broekhuizen(LB)"},
-    new Company { Id = 8, City = "Broekhuizenvorst"},
-    new Company { Id = 9, City = "Biddinghuizen" },
-    new Company { Id = 10, City = "Delfstrahuizen"},
-    new Company { Id = 11, City = "Huizen" },
+    new City { Id = 1, Name = "Bakhuizen"},
+    new City { Id = 2, Name = "Elahuizen"},
+    new City { Id = 3, Name = "Achthuizen"},
+    new City { Id = 4, Name = "Benthuizen"},
+    new City { Id = 5, Name = "Driehuizen"},
+    new City { Id = 6, Name = "Broekhuizen(DR)"},
+    new City { Id = 7, Name = "Broekhuizen(LB)"},
+    new City { Id = 8, Name = "Broekhuizenvorst"},
+    new City { Id = 9, Name = "Biddinghuizen" },
+    new City { Id = 10, Name = "Delfstrahuizen"},
+    new City { Id = 11, Name = "Huizen" },
 };
 
-// user input, voor dit voorbeeld hardcoded
-string keyword = "huiz";
+// Invoer van de gebruiker, voor dit voorbeeld een vaste waarde.
+string userInput = "huiz";
 
-// sorteert door namen die beginnen met de user input aan het begin te zetten, de rest daarna alfabetisch
-List<Company> sortedResult = returnedFromDatabase
-    .OrderByDescending(c => c.City.ToLower().StartsWith(keyword.ToLower()))
-    .ThenBy(c => c.City)
+// Een manier om de invoer van de gebruiker te controleren om SQL injection / andere rare dingen te voorkomen.
+// Voor dit simpele voorbeeld simpelweg hetzelfde als de invoer.
+string keyword = userInput;
+
+// Sorteert door namen die beginnen met de user input aan het begin te zetten, de rest daarna alfabetisch.
+List<City> sortedResult = returnedFromDatabase
+    .OrderByDescending(c => c.Name.ToLower().StartsWith(keyword.ToLower()))
+    .ThenBy(c => c.Name)
     .ToList();
 
-// dit is een console app, zo kan ik de eerste 10 printen
+// Dit is een console app, zo kan ik de eerste 10 printen.
 for (int count = 0; count < 10; count++)
 {
-    Console.WriteLine(sortedResult[count].City);
+    Console.WriteLine(sortedResult[count].Name);
 }
 
 
