@@ -23,7 +23,7 @@ string userInput = "huiz";
 // Voor dit simpele voorbeeld simpelweg hetzelfde als de invoer.
 string keyword = userInput;
 
-// Sorteert door namen die beginnen met de user input aan het begin te zetten, de rest daarna alfabetisch.
+// Sorteert door namen die met de gevalideerde input beginnen aan het begin te zetten, de rest daarna alfabetisch.
 List<City> sortedResult = returnedFromDatabase
     .OrderByDescending(c => c.Name.ToLower().StartsWith(keyword.ToLower()))
     .ThenBy(c => c.Name)
